@@ -1,0 +1,56 @@
+/* Variables CSS Globales */
+:root {
+  --primary-dark: #0a2e1f;
+  --primary-color: #1a5c3a;
+  --secondary-color: #2d7d46;
+  --accent-color: #8bc34a;
+  --shadow-color: #1e3a29;
+  --dark-color: #0d1f15;
+  --light-color: #e9f5eb;
+  --gold-color: #d4af37;
+  --silver-color: #c0c0c0;
+  --bronze-color: #cd7f32;
+  --transition: all 0.3s ease;
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+  --box-shadow: 0 5px 15px rgba(10, 46, 31, 0.2);
+  --box-shadow-dark: 0 10px 25px rgba(10, 46, 31, 0.3);
+}
+
+/* Estilos globales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Merriweather', serif;
+  line-height: 1.6;
+  color: var(--light-color);
+  background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-dark) 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Clases de utilidad global */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.accent {
+  color: var(--accent-color);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out;
+}

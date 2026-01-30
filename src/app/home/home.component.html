@@ -1,0 +1,231 @@
+<div class="home-container">
+  <!-- Header -->
+  <header class="guild-header">
+    <nav class="guild-nav container">
+      <div class="guild-logo">
+        <div class="logo-img">
+            <img src="assets/images/AZrm0tunqQtmvXFwcGGR4g-AZrm0tuntl79wtrtO-z93Q.jpg" 
+       alt="Logo Druidae Umbrae">
+        </div>
+        <div class="logo-text">
+          <h1>{{ guildName }}</h1>
+          <p class="guild-tagline">{{ guildTagline }}</p>
+        </div>
+      </div>
+      <button class="nav-toggle" (click)="toggleMenu()">
+        <i class="fas" [class.fa-bars]="!menuOpen" [class.fa-times]="menuOpen"></i>
+      </button>
+      <ul class="nav-links" [class.active]="menuOpen">
+        <li><button class="nav-link active" (click)="scrollTo('hero')">Inicio</button></li>
+        <li><button class="nav-link" (click)="scrollTo('about')">Sobre Nosotros</button></li>
+        <li><button class="nav-link" (click)="scrollTo('rules')">Reglas del Gremio</button></li>
+        <li><button class="nav-link" (click)="scrollTo('events')">Eventos</button></li>
+        <li><button class="nav-link btn-join" (click)="scrollTo('join')">Únete</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h2 class="hero-title">Bienvenido a <span class="accent">{{ guildName }}</span></h2>
+          <p class="hero-subtitle">Un gremio de Albion Online donde la naturaleza y la sombra se unen para forjar leyendas</p>
+          <p class="hero-desc">Somos una hermandad de guerreros, cazadores y protectores que honramos el balance entre la vida y la muerte, la luz y la oscuridad. En las tierras de Albion, hemos encontrado nuestro hogar.</p>
+          <div class="hero-buttons">
+            <button class="btn" (click)="scrollTo('join')">
+              <i class="fas fa-users"></i> Únete al Gremio
+            </button>
+            <button class="btn btn-secondary" (click)="copyDiscordLink()">
+              <i class="fab fa-discord"></i> Discord
+            </button>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-card" *ngFor="let stat of stats">
+            <div class="stat-icon">
+              <i [class]="stat.icon"></i>
+            </div>
+            <div class="stat-info">
+              <h3 class="stat-number">{{ stat.count }}</h3>
+              <p class="stat-label">{{ stat.label }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre Nosotros -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <h2 class="section-title">Sobre <span class="accent">{{ guildName }}</span></h2>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Nuestra Historia</h3>
+          <p>Fundado en las profundidades de los bosques antiguos de Albion, Druidae Umbrae nació de la unión de guerreros que comprenden el poder tanto de la naturaleza como de la sombra. Somos protectores de los secretos antiguos y conquistadores de nuevas tierras.</p>
+          
+          <h3>Nuestra Filosofía</h3>
+          <p>Creemos en el equilibrio: entre la fuerza y la sabiduría, entre la ofensiva y la defensiva, entre el individuo y la comunidad. En Albion, cada miembro tiene un papel que desempeñar, y juntos formamos un gremio imparable.</p>
+          
+          <h3>Nuestros Objetivos</h3>
+          <ul class="goals-list">
+            <li><i class="fas fa-check-circle"></i> Dominar territorios en las ZvZ (Zona vs Zona)</li>
+            <li><i class="fas fa-check-circle"></i> Crear una economía sólida dentro del gremio</li>
+            <li><i class="fas fa-check-circle"></i> Ayudar a nuevos jugadores a adaptarse a Albion</li>
+            <li><i class="fas fa-check-circle"></i> Organizar expediciones de PvE y PvP semanales</li>
+            <li><i class="fas fa-check-circle"></i> Mantener una comunidad activa y unida</li>
+          </ul>
+        </div>
+        <div class="about-image">
+          <div class="image-frame">
+            <i class="fas fa-dragon"></i>
+            <div class="image-caption">Nuestros guerreros en las Tierras Negras</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reglas del Gremio -->
+  <section id="rules" class="section rules-section">
+    <div class="container">
+      <h2 class="section-title">Reglas del <span class="accent">Gremio</span></h2>
+      <p class="section-subtitle">Para mantener una comunidad fuerte y respetuosa</p>
+      
+      <div class="rules-grid">
+        <div class="rule-card" *ngFor="let rule of rules">
+          <div class="rule-icon">
+            <i [class]="rule.icon"></i>
+          </div>
+          <h3>{{ rule.title }}</h3>
+          <p>{{ rule.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eventos -->
+  <section id="events" class="section events-section">
+    <div class="container">
+      <h2 class="section-title">Eventos <span class="accent">Semanal</span></h2>
+      <p class="section-subtitle">Actividades organizadas para todos los miembros</p>
+      
+      <div class="events-timeline">
+        <div class="event-day" *ngFor="let event of events">
+          <h3 class="day-title">{{ event.day }}</h3>
+          <div class="event-card">
+            <h4>{{ event.title }}</h4>
+            <p><i class="far fa-clock"></i> {{ event.time }}</p>
+            <p>{{ event.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Únete -->
+  <section id="join" class="section join-section">
+    <div class="container">
+      <div class="join-content">
+        <div class="join-text">
+          <h2 class="section-title">¿Listo para Unirte a <span class="accent">{{ guildName }}</span>?</h2>
+          <p>Busca nuestro gremio en Albion Online o únete a nuestro Discord para más información. Aceptamos jugadores de todos los niveles, desde novatos hasta veteranos.</p>
+          
+          <div class="requirements">
+            <h3>Requisitos:</h3>
+            <ul>
+              <li><i class="fas fa-user-plus"></i> Nivel mínimo: 100k de fama total</li>
+              <li><i class="fas fa-microphone"></i> Micrófono para Discord (recomendado)</li>
+              <li><i class="fas fa-heart"></i> Actitud positiva y ganas de aprender</li>
+              <li><i class="fas fa-language"></i> Español o inglés básico</li>
+            </ul>
+          </div>
+          
+          <div class="join-buttons">
+            <button class="btn btn-large" (click)="openAlbionWebsite()">
+              <i class="fas fa-gamepad"></i> Buscar en Albion
+            </button>
+            <button class="btn btn-secondary btn-large" (click)="copyDiscordLink()">
+              <i class="fab fa-discord"></i> Únete a Discord
+            </button>
+          </div>
+        </div>
+        
+        <div class="join-form">
+          <h3>Conéctate con Nosotros</h3>
+          <div class="discord-widget">
+            <div class="discord-header">
+              <i class="fab fa-discord"></i>
+              <h4>Discord {{ guildName }}</h4>
+            </div>
+            <div class="discord-content">
+              <p>Únete a nuestra comunidad en Discord para:</p>
+              <ul>
+                <li><i class="fas fa-bullhorn"></i> Anuncios y eventos</li>
+                <li><i class="fas fa-users"></i> Formar grupos de juego</li>
+                <li><i class="fas fa-question-circle"></i> Ayuda y consejos</li>
+                <li><i class="fas fa-trophy"></i> Organización de GvG</li>
+              </ul>
+              <div class="discord-invite">
+                <p>Enlace de invitación:</p>
+                <div class="invite-link">
+                  <code>{{ discordLink }}</code>
+                  <button class="btn-copy" (click)="copyDiscordLink()">
+                    <i class="far fa-copy"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="guild-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+         <div class="footer-logo-img">
+        <img src="assets/images/AZrm0tunqQtmvXFwcGGR4g-AZrm0tuntl79wtrtO-z93Q.jpg" 
+            alt="Logo Druidae Umbrae">
+        </div>
+          <div>
+            <h3>{{ guildName }}</h3>
+            <p>{{ guildTagline }}</p>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Enlaces Rápidos</h4>
+          <ul>
+            <li><button class="footer-link" (click)="scrollTo('hero')">Inicio</button></li>
+            <li><button class="footer-link" (click)="scrollTo('about')">Sobre Nosotros</button></li>
+            <li><button class="footer-link" (click)="scrollTo('rules')">Reglas</button></li>
+            <li><button class="footer-link" (click)="scrollTo('events')">Eventos</button></li>
+            <li><button class="footer-link" (click)="scrollTo('join')">Únete</button></li>
+          </ul>
+        </div>
+        
+        <div class="footer-social">
+          <h4>Síguenos</h4>
+          <div class="social-icons">
+            <button (click)="copyDiscordLink()"><i class="fab fa-discord"></i></button>
+            <button><i class="fab fa-youtube"></i></button>
+            <button><i class="fab fa-twitter"></i></button>
+            <button><i class="fab fa-twitch"></i></button>
+          </div>
+          <p class="game-mention">Gremio oficial en <strong>Albion Online</strong></p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2023 {{ guildName }}. Esta es una página de fans no oficial. Albion Online es una marca registrada de Sandbox Interactive GmbH.</p>
+        <p class="footer-note">"En la naturaleza encontramos fuerza, en la sombra encontramos poder." - Lema del Gremio</p>
+      </div>
+    </div>
+  </footer>
+</div>
