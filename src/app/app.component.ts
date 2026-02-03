@@ -1,19 +1,12 @@
 import { Component } from '@angular/core';
-import { HomeComponent } from './home/home.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HomeComponent],
-  template: `
-    <app-home></app-home>
-  `,
-  styles: [`
-    :host {
-      display: block;
-      min-height: 100vh;
-    }
-  `]
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'Druidae Umbrae';
